@@ -1,5 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+bool IsPowerOfTwo(int x)
+{
+    return (x != 0) && ((x & (x - 1)) == 0);
+}
 
 typedef struct node
 {
@@ -53,6 +60,10 @@ int main() {
 	int n;
 	printf("Give Number of participants: ");
 	scanf("%d", &n);
+	while(!IsPowerOfTwo(n)){
+        printf("Number has to be power of 2\nGive Number of participants: ");
+        scanf("%d", &n);
+    	}
 	int  i,j;
 	int* sched;
 	int* arr = (int*)malloc(n * sizeof(int)); //athletes array 
